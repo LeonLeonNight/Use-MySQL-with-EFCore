@@ -17,7 +17,7 @@ namespace WebApp.Controllers
             _dbContext = dbContext;
         }
 
-        public Action CreateBook(BookDto book)
+        public ActionResult<BookDto> CreateBook(BookDto book)
         {
             var b = new Book()
             {
@@ -30,7 +30,7 @@ namespace WebApp.Controllers
             };
             _dbContext.Books.Add(b);
             _dbContext.SaveChanges();
-            return;
+            return View();
         }
     }
 }
